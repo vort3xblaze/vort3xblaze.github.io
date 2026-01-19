@@ -189,12 +189,26 @@ h1 {
     box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
 }
 
+/* Tambahkan style untuk containernya dulu */
+.card-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4; /* KUNCI UTAMA: Memastikan perbandingan pas foto */
+    overflow: hidden;
+    background: #000; /* Warna cadangan loading */
+}
+
+/* Update style untuk gambarnya */
 .card-img img {
     width: 100%;
-    height: 300px;
+    height: 100%; /* Mengikuti tinggi aspect ratio di atas */
     object-fit: cover;
-    filter: grayscale(80%); /* Foto agak hitam putih biar cool */
-    transition: 0.5s;
+    
+    /* TAMBAHAN PENTING: Fokus ke Wajah */
+    object-position: top center; /* Memastikan crop fokus di area atas (wajah/peci) */
+    
+    filter: grayscale(100%) contrast(120%) brightness(90%);
+    transition: all 0.5s ease;
 }
 
 .card:hover .card-img img {
@@ -445,10 +459,15 @@ footer {
     }
 
     /* Kartu Santri di HP */
-    .grid-container {
-        grid-template-columns: 1fr; /* Paksa jadi 1 kolom ke bawah (memanjang) */
-        gap: 20px;
-    }
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px; /* Jarak saya kurangi sedikit biar lebih rapi */
+    
+    /* TAMBAHAN BARU: */
+    max-width: 1200px; /* Batasi lebar maksimal agar tidak terlalu longgar di layar lebar */
+    margin: 0 auto; /* Posisikan container di tengah layar */
+}
     
     .card {
         margin: 0 10px; /* Kasih jarak dikit dari pinggir layar */
