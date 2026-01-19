@@ -278,6 +278,105 @@ footer {
 .card:hover .card-img::after {
     opacity: 0; /* Hilang saat di-hover */
 }
+/* ========================
+   GALLERY STYLE (Masonry)
+   ======================== */
+
+.gallery-tags {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 8px 20px;
+    border: 1px solid var(--fire-orange);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tag:hover, .tag.active {
+    background: var(--fire-orange);
+    color: black;
+    box-shadow: 0 0 15px var(--fire-orange);
+}
+
+.gallery-grid {
+    display: grid;
+    /* Grid otomatis yang padat */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px; /* Tinggi dasar setiap kotak */
+    gap: 15px;
+    grid-auto-flow: dense; /* KUNCI: Mengisi celah kosong secara otomatis */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s transform;
+    filter: grayscale(80%); /* Tetap nuansa gelap dulu */
+}
+
+/* Hover Effect: Zoom & Warna Muncul */
+.gallery-item:hover {
+    border-color: var(--gold);
+    z-index: 2; /* Biar nongol di atas yg lain */
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Overlay Teks Keren */
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to top, black, transparent);
+    color: var(--fire-orange);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    transform: translateY(100%); /* Sembunyi dulu */
+    transition: 0.3s;
+}
+
+.gallery-item:hover .overlay-text {
+    transform: translateY(0); /* Muncul pas di-hover */
+}
+
+/* UKURAN SPESIAL (Biar kayak puzzle) */
+.wide {
+    grid-column: span 2; /* Melebar 2 kolom */
+}
+
+.tall {
+    grid-row: span 2; /* Memanjang 2 baris ke bawah */
+}
+
+.big {
+    grid-column: span 2;
+    grid-row: span 2; /* Besar banget (2x2) */
+}
 /* =========================================
    RESPONSIVE MOBILE (KHUSUS HP)
    Taruh kode ini di bagian paling bawah style.css
@@ -353,5 +452,20 @@ footer {
     
     .card {
         margin: 0 10px; /* Kasih jarak dikit dari pinggir layar */
+    }
+    /* Tambahkan ini DI DALAM kurung kurawal @media paling bawah */
+    
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Di HP jadi 1 kolom saja ke bawah */
+        grid-auto-rows: 250px; /* Tinggi foto di HP */
+    }
+
+    .wide, .tall, .big {
+        grid-column: span 1; /* Reset semua ukuran spesial jadi normal di HP */
+        grid-row: span 1;
+    }
+
+    .gallery-item img {
+        filter: grayscale(0%); /* Di HP langsung berwarna aja, gak usah hover */
     }
 }
