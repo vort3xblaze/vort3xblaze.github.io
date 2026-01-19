@@ -2,7 +2,7 @@
 
 > **"From Sparks to Inferno, We Are The Phoenix."**
 
-Website kenang-kenangan digital (Digital Yearbook) untuk kelas **Three Intensive B (3XB)** - Angkatan 2026, Pondok Modern Darussalam Gontor Kampus 5 (Darul Qiyam).
+Website kenang-kenangan digital (Digital Yearbook) untuk kelas **Three Intensive B (3XB)** - Tahun Ajaran 1447/2026, Pondok Modern Darussalam Gontor Kampus 5 (Darul Qiyam).
 
 ### 🔗 AKSES WEBSITE
 Klik link di bawah untuk melihat kenangan kami:
