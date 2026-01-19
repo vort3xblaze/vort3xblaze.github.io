@@ -391,6 +391,64 @@ footer {
     grid-column: span 2;
     grid-row: span 2; /* Besar banget (2x2) */
 }
+/* ========================
+   TOMBOL MEDSOS (FOOTER GALERI)
+   ======================== */
+
+.gallery-footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px dashed #333; /* Garis putus-putus pemisah */
+}
+
+.more-text {
+    font-family: 'Oswald', sans-serif;
+    color: #888;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Biar di HP tombolnya turun ke bawah kalau nggak muat */
+}
+
+.btn-social {
+    padding: 12px 30px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border: 2px solid var(--fire-orange);
+    text-transform: uppercase;
+    transition: 0.4s;
+    background: rgba(0,0,0,0.5);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect Keren */
+.btn-social:hover {
+    transform: translateY(-5px); /* Tombol naik dikit */
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Warna Khusus Telegram (Biru) saat Hover */
+.telegram:hover {
+    background-color: #0088cc;
+    box-shadow: 0 0 20px #0088cc;
+}
+
+/* Warna Khusus Instagram (Gradasi) saat Hover */
+.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    box-shadow: 0 0 20px #dc2743;
+}
 /* =========================================
    RESPONSIVE MOBILE (KHUSUS HP)
    Taruh kode ini di bagian paling bawah style.css
