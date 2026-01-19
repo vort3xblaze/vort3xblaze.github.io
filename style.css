@@ -278,3 +278,80 @@ footer {
 .card:hover .card-img::after {
     opacity: 0; /* Hilang saat di-hover */
 }
+/* =========================================
+   RESPONSIVE MOBILE (KHUSUS HP)
+   Taruh kode ini di bagian paling bawah style.css
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. Perbaiki Menu Navigasi (Biar nggak nabrak) */
+    nav {
+        flex-direction: column; /* Menu turun ke bawah logo */
+        padding: 15px;
+        gap: 15px;
+        background: rgba(0, 0, 0, 0.95); /* Lebih gelap biar tulisan jelas */
+    }
+
+    .nav-links {
+        gap: 15px;
+        width: 100%;
+        justify-content: center; /* Menu jadi di tengah */
+        padding: 0;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Ukuran font menu dikecilkan dikit */
+    }
+
+    /* 2. Kecilkan Tulisan Judul Utama (HERO) */
+    .hero-content {
+        width: 90%; /* Biar konten tidak terlalu mepet pinggir */
+    }
+
+    .hero-logo {
+        width: 100px; /* Logo Phoenix dikecilkan */
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 2.8rem; /* Dikecilkan dari 5rem jadi 2.8rem */
+        line-height: 1.1;  /* Jarak antar baris dirapatkan */
+        margin-bottom: 5px;
+    }
+
+    .script-font {
+        font-size: 1.8rem; /* Tulisan 'Gontor 5' dikecilkan */
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        margin-bottom: 25px;
+    }
+
+    .btn-fire {
+        padding: 12px 30px; /* Tombol disesuaikan jari jempol */
+        font-size: 0.9rem;
+    }
+
+    /* 3. Atur Jarak Section Squad/Santri */
+    .section-dark {
+        padding: 50px 5%; /* Padding pinggir dikurangi biar kartu lebih lega */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Judul section dikecilkan */
+    }
+
+    /* Kartu Santri di HP */
+    .grid-container {
+        grid-template-columns: 1fr; /* Paksa jadi 1 kolom ke bawah (memanjang) */
+        gap: 20px;
+    }
+    
+    .card {
+        margin: 0 10px; /* Kasih jarak dikit dari pinggir layar */
+    }
+}
