@@ -1,1 +1,247 @@
 
+/* RESET & VARIABEL WARNA */
+:root {
+    --fire-orange: #ff4500;
+    --gold: #ffd700;
+    --dark-bg: #050505;
+    --card-bg: #121212;
+    --text-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    font-family: 'Rajdhani', sans-serif; /* Font teknikal agak kotak */
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--fire-orange);
+}
+
+.logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--fire-orange);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--fire-orange);
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Ganti gambar di sini sesuai nama file background Kakak */
+    background-image: url('images/bg-hero.png'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease;
+}
+
+.hero-logo {
+    width: 150px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.6));
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ffffff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: -10px;
+    letter-spacing: 5px;
+}
+
+.script-font {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--fire-orange);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.5);
+}
+
+/* TOMBOL BERAPI */
+.btn-fire {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #ff4500, #ff8c00);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-fire:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--fire-orange);
+}
+
+/* SECTION SANTRI */
+.section-dark {
+    padding: 80px 10%;
+    background-color: var(--dark-bg);
+    background-image: linear-gradient(var(--card-bg) 1px, transparent 1px),
+    linear-gradient(90deg, var(--card-bg) 1px, transparent 1px);
+    background-size: 30px 30px; /* Efek Grid tipis */
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.section-title span {
+    color: var(--fire-orange);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* KARTU SANTRI (Sesuai Desain Stiker) */
+.card {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--fire-orange);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
+}
+
+.card-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: grayscale(80%); /* Foto agak hitam putih biar cool */
+    transition: 0.5s;
+}
+
+.card:hover .card-img img {
+    filter: grayscale(0%); /* Pas di-hover jadi berwarna */
+}
+
+.card-info {
+    padding: 15px;
+    background: linear-gradient(to right, #000, #1a1a1a);
+    border-top: 3px solid var(--fire-orange);
+    text-align: center;
+}
+
+.card-info h3 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.card-info .role {
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+.fire-text {
+    color: var(--fire-orange);
+    font-weight: bold;
+}
+
+/* Animasi Masuk */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
