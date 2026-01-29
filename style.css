@@ -453,7 +453,32 @@ footer {
    RESPONSIVE MOBILE (KHUSUS HP)
    Taruh kode ini di bagian paling bawah style.css
    ========================================= */
+/* ========================
+   FITUR SORTIR GALERI
+   ======================== */
 
+/* Kelas untuk menyembunyikan foto */
+.gallery-item.hide {
+    display: none; /* Hilang dari aliran grid */
+}
+
+/* Animasi saat foto muncul */
+.gallery-item.show {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Tombol Filter Aktif (Warna Menyala) */
+.tag.active {
+    background: var(--fire-orange);
+    color: black;
+    box-shadow: 0 0 15px var(--fire-orange);
+    font-weight: bold;
+}
 @media screen and (max-width: 768px) {
     
     /* 1. Perbaiki Menu Navigasi (Biar nggak nabrak) */
