@@ -308,6 +308,40 @@
         <p>Proud to be part of <span class="fire-text">VORT3XBLAZE</span></p>
         <p>Gontor 5 Darul Qiyam Magelang &copy; 2026</p>
     </footer>
+<script>
+        function filterGallery(category, btn) {
+            // 1. Atur Tombol Aktif (Warna Oranye)
+            var buttons = document.getElementsByClassName("tag");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            btn.classList.add("active");
 
+            // 2. Logika Sortir Foto
+            var items = document.getElementsByClassName("gallery-item");
+            
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                
+                // Reset animasi
+                item.classList.remove("show");
+
+                if (category === 'all') {
+                    // Kalau pilih ALL, munculkan semua
+                    item.classList.remove("hide");
+                    item.classList.add("show");
+                } else {
+                    // Cek apakah foto ini punya kelas yang sesuai (awal/akhir)
+                    if (item.classList.contains(category)) {
+                        item.classList.remove("hide");
+                        item.classList.add("show");
+                    } else {
+                        // Kalau tidak sesuai, sembunyikan
+                        item.classList.add("hide");
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
