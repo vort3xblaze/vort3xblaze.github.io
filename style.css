@@ -160,22 +160,28 @@ footer { text-align: center; padding: 40px; background: #000; border-top: 1px so
    KESAN & PESAN (COMMENTS)
    ======================== */
 .comment-container {
-    max-width: 800px;
+    max-width: 1100px; /* Diperlebar agar muat 2 kolom */
     margin: 0 auto;
     background: var(--card-bg);
-    padding: 30px;
+    padding: 40px;
     border: 1px solid #333;
     border-top: 4px solid var(--fire-orange);
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    
+    /* KUNCI KIRI-KANAN DI LAPTOP */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dibagi 2 kolom sama besar */
+    gap: 40px;
 }
 
+/* Bagian Kiri (Form) */
 .comment-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 1px dashed #444;
+    border-right: 1px dashed #444; /* Garis pemisah di tengah */
+    padding-right: 40px;
+    height: fit-content;
 }
 
 .comment-form input, .comment-form textarea {
@@ -195,12 +201,20 @@ footer { text-align: center; padding: 40px; background: #000; border-top: 1px so
     box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
 }
 
-/* Kotak Komentar */
+/* Bagian Kanan (Daftar Komentar) */
 .comment-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-height: 400px; /* Batas tinggi kotak komentar */
+    overflow-y: auto;  /* Munculkan scroll kalau komen kepanjangan */
+    padding-right: 15px;
 }
+
+/* Desain Scrollbar Keren (Tema Phoenix) */
+.comment-list::-webkit-scrollbar { width: 6px; }
+.comment-list::-webkit-scrollbar-track { background: #0a0a0a; }
+.comment-list::-webkit-scrollbar-thumb { background: var(--fire-orange); border-radius: 10px; }
 
 .comment-box {
     background: #1a1a1a;
@@ -209,28 +223,11 @@ footer { text-align: center; padding: 40px; background: #000; border-top: 1px so
     animation: fadeInUp 0.5s ease;
 }
 
-.comment-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-family: 'Oswald', sans-serif;
-}
+.comment-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-family: 'Oswald', sans-serif; }
+.comment-name { color: var(--gold); font-size: 1.2rem; text-transform: uppercase; }
+.comment-date { color: #666; font-size: 0.9rem; }
+.comment-text { line-height: 1.6; color: #ddd; }
 
-.comment-name {
-    color: var(--gold);
-    font-size: 1.2rem;
-    text-transform: uppercase;
-}
-
-.comment-date {
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.comment-text {
-    line-height: 1.6;
-    color: #ddd;
-}
 /* =========================================
    RESPONSIVE MOBILE (KHUSUS HP)
    ========================================= */
@@ -256,4 +253,21 @@ footer { text-align: center; padding: 40px; background: #000; border-top: 1px so
     }
     .card { margin: 0 10px; }
     .gallery-item img { filter: grayscale(0%); }
+    /* RESPONSIVE: KESAN & PESAN JADI ATAS-BAWAH DI HP */
+    .comment-container {
+        grid-template-columns: 1fr; /* Ubah jadi 1 kolom saja */
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .comment-form {
+        border-right: none; /* Hilangkan garis tengah */
+        border-bottom: 1px dashed #444; /* Pindahkan garis jadi ke bawah form */
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
+    
+    .comment-list {
+        max-height: 500px; /* Kasih ruang agak panjang di HP */
+    }
 }
