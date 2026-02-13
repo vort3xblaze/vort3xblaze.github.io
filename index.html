@@ -320,45 +320,37 @@
         <p>Gontor 5 Darul Qiyam Magelang &copy; 2026</p>
     </footer>
 <script>
+        // 1. Script Filter Galeri (Jangan dihapus)
         function filterGallery(category, btn) {
-            // 1. Atur Tombol Aktif (Warna Oranye)
             var buttons = document.getElementsByClassName("tag");
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
+            for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove("active"); }
             btn.classList.add("active");
 
-            // 2. Logika Sortir Foto
             var items = document.getElementsByClassName("gallery-item");
-            
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
-                
-                // Reset animasi
                 item.classList.remove("show");
-
-                if (category === 'all') {
-                    // Kalau pilih ALL, munculkan semua
+                if (category === 'all' || item.classList.contains(category)) {
                     item.classList.remove("hide");
                     item.classList.add("show");
                 } else {
-                    // Cek apakah foto ini punya kelas yang sesuai (awal/akhir)
-                    if (item.classList.contains(category)) {
-                        item.classList.remove("hide");
-                        item.classList.add("show");
-                    } else {
-                        // Kalau tidak sesuai, sembunyikan
-                        item.classList.add("hide");
-                    }
+                    item.classList.add("hide");
                 }
             }
         }
-        // FUNGSI TAMBAH KOMENTAR
+
+        // ==========================================
+        // 2. SCRIPT KOMENTAR (LOCALSTORAGE)
+        // ==========================================
+        
+        // Tampilkan komentar saat website dibuka
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComments();
+        });
+
         function postComment() {
             var nameInput = document.getElementById("senderName");
             var messageInput = document.getElementById("senderMessage");
-            var commentList = document.getElementById("commentList");
-
             var name = nameInput.value.trim();
             var message = messageInput.value.trim();
 
@@ -367,25 +359,54 @@
                 return;
             }
 
-            // Bikin elemen HTML untuk komentar baru
-            var newComment = document.createElement("div");
-            newComment.className = "comment-box";
-            
-            newComment.innerHTML = `
-                <div class="comment-header">
-                    <span class="comment-name">${name}</span>
-                    <span class="comment-date">Baru saja</span>
-                </div>
-                <p class="comment-text">${message}</p>
-            `;
+            // Ambil waktu saat ini
+            var today = new Date();
+            var timeString = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
 
-            // Masukkan komentar baru ke urutan paling atas
-            commentList.insertBefore(newComment, commentList.firstChild);
+            // Simpan ke memori browser (LocalStorage)
+            var newComment = { nama: name, pesan: message, waktu: "Hari ini, " + timeString };
+            var savedComments = JSON.parse(localStorage.getItem("vort3xblaze_comments")) || [];
+            savedComments.unshift(newComment); // Taruh di paling atas
+            localStorage.setItem("vort3xblaze_comments", JSON.stringify(savedComments));
 
-            // Bersihkan form setelah terkirim
+            // Bersihkan form
             nameInput.value = "";
             messageInput.value = "";
+            
+            // Muat ulang daftar komentar
+            loadComments();
+        }
+
+        function loadComments() {
+            var commentList = document.getElementById("commentList");
+            var savedComments = JSON.parse(localStorage.getItem("vort3xblaze_comments")) || [];
+            
+            // Komentar Default dari Kakak
+            var htmlData = `
+                <div class="comment-box">
+                    <div class="comment-header">
+                        <span class="comment-name">Wali Kelas 3XB</span>
+                        <span class="comment-date">Pesan Utama</span>
+                    </div>
+                    <p class="comment-text">Semoga sukses selalu di manapun kalian berada. Jadilah seperti Phoenix yang selalu bangkit dengan api semangat yang baru! 🔥</p>
+                </div>
+            `;
+
+            // Tambahkan komentar dari memori ke layar
+            savedComments.forEach(function(c) {
+                htmlData = `
+                    <div class="comment-box">
+                        <div class="comment-header">
+                            <span class="comment-name">${c.nama}</span>
+                            <span class="comment-date">${c.waktu}</span>
+                        </div>
+                        <p class="comment-text">${c.pesan}</p>
+                    </div>
+                ` + htmlData;
+            });
+
+            commentList.innerHTML = htmlData;
         }
     </script>
-</body>
+    </body>
 </html>
