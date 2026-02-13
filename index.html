@@ -339,18 +339,24 @@
             }
         }
 
-        // ==========================================
-        // 2. SCRIPT KOMENTAR (LOCALSTORAGE)
+// ==========================================
+        // SCRIPT KOMENTAR LIVE (GOOGLE SHEETS)
         // ==========================================
         
-        // Tampilkan komentar saat website dibuka
+        // GANTI LINK DI BAWAH INI DENGAN URL WEB APP MILIK KAKAK
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyTUQnR1yOZKbKhULbo1UHwkrYAgbjniioG9il2UAMZRp6ooHrz5gmhgvyopFzE8B_E/exec';
+
+        // Load komentar otomatis saat web pertama dibuka
         document.addEventListener("DOMContentLoaded", function() {
             loadComments();
         });
 
+        // FUNGSI MENGIRIM KOMENTAR KE EXCEL
         function postComment() {
             var nameInput = document.getElementById("senderName");
             var messageInput = document.getElementById("senderMessage");
+            var btnKirim = document.querySelector(".comment-form .btn-fire"); 
+            
             var name = nameInput.value.trim();
             var message = messageInput.value.trim();
 
@@ -359,53 +365,73 @@
                 return;
             }
 
-            // Ambil waktu saat ini
-            var today = new Date();
-            var timeString = today.getHours() + ":" + (today.getMinutes()<10?'0':'') + today.getMinutes();
+            // Ubah teks tombol saat loading
+            btnKirim.innerHTML = "MENGIRIM PESAN... ⏳";
+            btnKirim.disabled = true;
 
-            // Simpan ke memori browser (LocalStorage)
-            var newComment = { nama: name, pesan: message, waktu: "Hari ini, " + timeString };
-            var savedComments = JSON.parse(localStorage.getItem("vort3xblaze_comments")) || [];
-            savedComments.unshift(newComment); // Taruh di paling atas
-            localStorage.setItem("vort3xblaze_comments", JSON.stringify(savedComments));
+            // Siapkan paket data untuk dikirim
+            var formData = new URLSearchParams();
+            formData.append('Nama', name);
+            formData.append('Pesan', message);
 
-            // Bersihkan form
-            nameInput.value = "";
-            messageInput.value = "";
-            
-            // Muat ulang daftar komentar
-            loadComments();
+            // Kirim ke Google Sheets
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    // Jika sukses, bersihkan form
+                    nameInput.value = "";
+                    messageInput.value = "";
+                    btnKirim.innerHTML = "KIRIM PESAN";
+                    btnKirim.disabled = false;
+                    
+                    // Langsung muat ulang daftar komentar biar muncul yang baru
+                    loadComments();
+                })
+                .catch(error => {
+                    alert("Gagal mengirim pesan. Pastikan internet lancar!");
+                    btnKirim.innerHTML = "KIRIM PESAN";
+                    btnKirim.disabled = false;
+                });
         }
 
+        // FUNGSI MENGAMBIL KOMENTAR DARI EXCEL
         function loadComments() {
             var commentList = document.getElementById("commentList");
-            var savedComments = JSON.parse(localStorage.getItem("vort3xblaze_comments")) || [];
-            
-            // Komentar Default dari Kakak
-            var htmlData = `
-                <div class="comment-box">
-                    <div class="comment-header">
-                        <span class="comment-name">Wali Kelas 3XB</span>
-                        <span class="comment-date">Pesan Utama</span>
-                    </div>
-                    <p class="comment-text">Semoga sukses selalu di manapun kalian berada. Jadilah seperti Phoenix yang selalu bangkit dengan api semangat yang baru! 🔥</p>
-                </div>
-            `;
+            commentList.innerHTML = "<p style='text-align:center; color:var(--fire-orange); margin-top:20px;'>Memuat kenangan... ⏳</p>";
 
-            // Tambahkan komentar dari memori ke layar
-            savedComments.forEach(function(c) {
-                htmlData = `
-                    <div class="comment-box">
-                        <div class="comment-header">
-                            <span class="comment-name">${c.nama}</span>
-                            <span class="comment-date">${c.waktu}</span>
-                        </div>
-                        <p class="comment-text">${c.pesan}</p>
-                    </div>
-                ` + htmlData;
-            });
+            // Ambil data dari Google Sheets
+            fetch(scriptURL)
+                .then(response => response.json())
+                .then(data => {
+                    var htmlData = "";
+                    
+                    // Kita balik datanya (reverse) agar komentar paling baru ada di atas
+                    data.reverse().forEach(function(c) {
+                        // Merapikan format waktu
+                        var dateObj = new Date(c.waktu);
+                        var dateStr = dateObj.toLocaleDateString('id-ID') + " - " + dateObj.toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'});
 
-            commentList.innerHTML = htmlData;
+                        htmlData += `
+                            <div class="comment-box">
+                                <div class="comment-header">
+                                    <span class="comment-name">${c.nama}</span>
+                                    <span class="comment-date">${dateStr}</span>
+                                </div>
+                                <p class="comment-text">${c.pesan}</p>
+                            </div>
+                        `;
+                    });
+
+                    // Jika Excel masih kosong
+                    if(htmlData === "") {
+                        htmlData = "<p style='text-align:center; color:#666; margin-top:20px;'>Belum ada kesan & pesan. Jadilah yang pertama! 🔥</p>";
+                    }
+
+                    // Tampilkan ke layar
+                    commentList.innerHTML = htmlData;
+                })
+                .catch(error => {
+                    commentList.innerHTML = "<p style='text-align:center; color:red;'>Gagal memuat database komentar.</p>";
+                });
         }
     </script>
     </body>
