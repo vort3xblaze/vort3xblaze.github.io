@@ -156,6 +156,81 @@ footer { text-align: center; padding: 40px; background: #000; border-top: 1px so
 .fire-text { color: var(--fire-orange); font-weight: bold; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
+/* ========================
+   KESAN & PESAN (COMMENTS)
+   ======================== */
+.comment-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border: 1px solid #333;
+    border-top: 4px solid var(--fire-orange);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #444;
+}
+
+.comment-form input, .comment-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.comment-form input:focus, .comment-form textarea:focus {
+    border-color: var(--fire-orange);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
+}
+
+/* Kotak Komentar */
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment-box {
+    background: #1a1a1a;
+    padding: 20px;
+    border-left: 3px solid var(--fire-orange);
+    animation: fadeInUp 0.5s ease;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.comment-name {
+    color: var(--gold);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.comment-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.comment-text {
+    line-height: 1.6;
+    color: #ddd;
+}
 /* =========================================
    RESPONSIVE MOBILE (KHUSUS HP)
    ========================================= */

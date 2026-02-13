@@ -289,6 +289,28 @@
                 <div class="overlay-text">THE FINAL CHAPTER: GRADUATION</div>
             </div>
 
+<section id="kesan-pesan" class="section-dark">
+        <h2 class="section-title">KESAN & PESAN <span>3 INTENSIF B</span></h2>
+        
+        <div class="comment-container">
+            <div class="comment-form">
+                <input type="text" id="senderName" placeholder="Nama / Julukan Kamu..." required>
+                <textarea id="senderMessage" rows="4" placeholder="Tulis kenangan paling gokil atau pesan buat teman-teman 3XB..." required></textarea>
+                <button onclick="postComment()" class="btn-fire" style="width: 100%;">KIRIM PESAN</button>
+            </div>
+
+            <div class="comment-list" id="commentList">
+                <div class="comment-box">
+                    <div class="comment-header">
+                        <span class="comment-name">Wali Kelas 3XB</span>
+                        <span class="comment-date">Hari ini</span>
+                    </div>
+                    <p class="comment-text">Semoga sukses selalu di manapun kalian berada. Jadilah seperti Phoenix yang selalu bangkit dengan api semangat yang baru! 🔥</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
         </div>
         
         <div class="gallery-footer">
@@ -341,6 +363,39 @@
                     }
                 }
             }
+        }
+        // FUNGSI TAMBAH KOMENTAR
+        function postComment() {
+            var nameInput = document.getElementById("senderName");
+            var messageInput = document.getElementById("senderMessage");
+            var commentList = document.getElementById("commentList");
+
+            var name = nameInput.value.trim();
+            var message = messageInput.value.trim();
+
+            if (name === "" || message === "") {
+                alert("Nama dan pesan tidak boleh kosong, Kak!");
+                return;
+            }
+
+            // Bikin elemen HTML untuk komentar baru
+            var newComment = document.createElement("div");
+            newComment.className = "comment-box";
+            
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-name">${name}</span>
+                    <span class="comment-date">Baru saja</span>
+                </div>
+                <p class="comment-text">${message}</p>
+            `;
+
+            // Masukkan komentar baru ke urutan paling atas
+            commentList.insertBefore(newComment, commentList.firstChild);
+
+            // Bersihkan form setelah terkirim
+            nameInput.value = "";
+            messageInput.value = "";
         }
     </script>
 </body>
