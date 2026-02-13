@@ -1,4 +1,3 @@
-
 /* RESET & VARIABEL WARNA */
 :root {
     --fire-orange: #ff4500;
@@ -17,7 +16,7 @@
 body {
     background-color: var(--dark-bg);
     color: var(--text-white);
-    font-family: 'Rajdhani', sans-serif; /* Font teknikal agak kotak */
+    font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
 }
 
@@ -35,35 +34,12 @@ nav {
     border-bottom: 2px solid var(--fire-orange);
 }
 
-.logo {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+.logo { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+.logo span { color: var(--fire-orange); }
 
-.logo span {
-    color: var(--fire-orange);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-    text-transform: uppercase;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
-    text-shadow: 0 0 10px var(--fire-orange);
-}
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
+.nav-links a:hover { color: var(--gold); text-shadow: 0 0 10px var(--fire-orange); }
 
 /* HERO SECTION */
 .hero {
@@ -72,7 +48,6 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Ganti gambar di sini sesuai nama file background Kakak */
     background-image: url('images/bg-hero.png'); 
     background-size: cover;
     background-position: center;
@@ -80,490 +55,130 @@ nav {
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    animation: fadeInUp 1.5s ease;
-}
-
-.hero-logo {
-    width: 150px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.6));
-}
+.hero-content { position: relative; z-index: 1; animation: fadeInUp 1.5s ease; }
+.hero-logo { width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.6)); }
 
 h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 5rem;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #ffffff, #a0a0a0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: -10px;
-    letter-spacing: 5px;
+    font-family: 'Oswald', sans-serif; font-size: 5rem; text-transform: uppercase;
+    background: linear-gradient(to right, #ffffff, #a0a0a0); -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; margin-bottom: -10px; letter-spacing: 5px;
 }
 
-.script-font {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
-    color: var(--fire-orange);
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
-}
+.script-font { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--fire-orange); margin-bottom: 20px; text-shadow: 0 0 10px rgba(255, 69, 0, 0.8); }
+.subtitle { font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 40px; border-top: 1px solid white; border-bottom: 1px solid white; display: inline-block; padding: 10px 20px; background: rgba(0,0,0,0.5); }
 
-.subtitle {
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    display: inline-block;
-    padding: 10px 20px;
-    background: rgba(0,0,0,0.5);
-}
+.btn-fire { padding: 15px 40px; background: linear-gradient(45deg, #ff4500, #ff8c00); color: white; text-decoration: none; font-weight: bold; text-transform: uppercase; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); transition: 0.3s; display: inline-block; }
+.btn-fire:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--fire-orange); }
 
-/* TOMBOL BERAPI */
-.btn-fire {
-    padding: 15px 40px;
-    background: linear-gradient(45deg, #ff4500, #ff8c00);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.btn-fire:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px var(--fire-orange);
-}
-
-/* SECTION SANTRI */
+/* SECTION GLOBAL (SANTRI & GALERI) */
 .section-dark {
     padding: 80px 10%;
     background-color: var(--dark-bg);
     background-image: linear-gradient(var(--card-bg) 1px, transparent 1px),
     linear-gradient(90deg, var(--card-bg) 1px, transparent 1px);
-    background-size: 30px 30px; /* Efek Grid tipis */
+    background-size: 30px 30px;
 }
 
-.section-title {
-    text-align: center;
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 50px;
-}
+.section-title { text-align: center; font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 50px; }
+.section-title span { color: var(--fire-orange); }
 
-.section-title span {
-    color: var(--fire-orange);
-}
-
+/* ========================
+   SQUAD / KARTU SANTRI
+   ======================== */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    max-width: 1100px; /* Batasan Lebar Laptop */
+    margin: 0 auto;    /* Posisi Tengah */
 }
 
-/* KARTU SANTRI (Sesuai Desain Stiker) */
-.card {
-    background: var(--card-bg);
-    border: 1px solid #333;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s;
-}
+.card { background: var(--card-bg); border: 1px solid #333; position: relative; overflow: hidden; transition: 0.3s; }
+.card:hover { border-color: var(--fire-orange); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3); }
 
-.card:hover {
-    border-color: var(--fire-orange);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.3);
-}
+.card-img { position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #000; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: grayscale(100%) contrast(120%) brightness(90%); transition: all 0.5s ease; }
+.card:hover .card-img img { filter: grayscale(0%) contrast(100%) brightness(100%); transform: scale(1.05); }
 
-/* Tambahkan style untuk containernya dulu */
-.card-img {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3 / 4; /* KUNCI UTAMA: Memastikan perbandingan pas foto */
-    overflow: hidden;
-    background: #000; /* Warna cadangan loading */
-}
+.card-img::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(255, 69, 0, 0.4), transparent 70%); pointer-events: none; }
+.card:hover .card-img::after { opacity: 0; }
 
-/* Update style untuk gambarnya */
-.card-img img {
-    width: 100%;
-    height: 100%; /* Mengikuti tinggi aspect ratio di atas */
-    object-fit: cover;
-    
-    /* TAMBAHAN PENTING: Fokus ke Wajah */
-    object-position: top center; /* Memastikan crop fokus di area atas (wajah/peci) */
-    
-    filter: grayscale(100%) contrast(120%) brightness(90%);
-    transition: all 0.5s ease;
-}
-
-.card:hover .card-img img {
-    filter: grayscale(0%); /* Pas di-hover jadi berwarna */
-}
-
-.card-info {
-    padding: 15px;
-    background: linear-gradient(to right, #000, #1a1a1a);
-    border-top: 3px solid var(--fire-orange);
-    text-align: center;
-}
-
-.card-info h3 {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    color: white;
-}
-
-.card-info .role {
-    color: var(--gold);
-    font-size: 0.9rem;
-    font-style: italic;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #000;
-    border-top: 1px solid #333;
-}
-
-.fire-text {
-    color: var(--fire-orange);
-    font-weight: bold;
-}
-
-/* Animasi Masuk */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Tambahkan ini di style.css untuk efek foto otomatis */
-
-.card-img {
-    position: relative;
-}
-
-/* Efek awal: Foto agak gelap, kontras tinggi, hitam putih */
-.card-img img {
-    filter: grayscale(100%) contrast(120%) brightness(90%);
-    transition: all 0.5s ease;
-}
-
-/* Efek saat di-hover: Jadi berwarna & terang */
-.card:hover .card-img img {
-    filter: grayscale(0%) contrast(100%) brightness(100%);
-    transform: scale(1.05); /* Zoom sedikit */
-}
-
-/* Lapisan Oranye tipis di bawah foto biar menyatu sama tema */
-.card-img::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(255, 69, 0, 0.4), transparent 70%);
-    pointer-events: none;
-}
-
-.card:hover .card-img::after {
-    opacity: 0; /* Hilang saat di-hover */
-}
-/* ========================
-   GALLERY STYLE (Masonry)
-   ======================== */
-
-.gallery-tags {
-    text-align: center;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.tag {
-    padding: 8px 20px;
-    border: 1px solid var(--fire-orange);
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-
-.tag:hover, .tag.active {
-    background: var(--fire-orange);
-    color: black;
-    box-shadow: 0 0 15px var(--fire-orange);
-}
+.card-info { padding: 15px; background: linear-gradient(to right, #000, #1a1a1a); border-top: 3px solid var(--fire-orange); text-align: center; }
+.card-info h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 1.5rem; color: white; }
+.card-info .role { color: var(--gold); font-size: 0.9rem; font-style: italic; }
 
 /* ========================
    GALLERY STYLE (Rasio 4:3)
    ======================== */
+.gallery-tags { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.tag { padding: 8px 20px; border: 1px solid var(--fire-orange); color: white; font-family: 'Oswald', sans-serif; cursor: pointer; transition: 0.3s; font-size: 0.9rem; letter-spacing: 1px; }
+.tag:hover, .tag.active { background: var(--fire-orange); color: black; box-shadow: 0 0 15px var(--fire-orange); font-weight: bold; }
 
 .gallery-grid {
     display: grid;
-    /* Kolom menyesuaikan layar, minimal lebarnya 300px */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    max-width: 1100px; /* Batasan Lebar Laptop */
+    margin: 0 auto;    /* Posisi Tengah */
 }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #333;
-    transition: 0.3s;
-    width: 100%;
-    
-    /* KUNCI UTAMA: Memaksa bingkai jadi proporsi 4:3 */
-    aspect-ratio: 4 / 3; 
-}
+.gallery-item { position: relative; overflow: hidden; border: 1px solid #333; transition: 0.3s; width: 100%; aspect-ratio: 4 / 3; }
+.wide, .tall, .big { grid-column: span 1 !important; grid-row: span 1 !important; }
 
-/* Netralkan class spesial agar semua seragam 4:3 */
-.wide, .tall, .big {
-    grid-column: span 1 !important;
-    grid-row: span 1 !important;
-}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: 0.5s transform; filter: grayscale(80%); }
+.gallery-item:hover { border-color: var(--gold); z-index: 2; transform: scale(1.02); box-shadow: 0 5px 20px rgba(0,0,0,0.8); }
+.gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Fokuskan potongan di tengah (agar kepala/wajah lebih aman) */
-    object-position: center; 
-    transition: 0.5s transform;
-    filter: grayscale(80%); /* Efek gelap khas VORT3XBLAZE */
-}
+.overlay-text { position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background: linear-gradient(to top, black, transparent); color: var(--fire-orange); font-family: 'Oswald', sans-serif; font-size: 1.2rem; transform: translateY(100%); transition: 0.3s; }
+.gallery-item:hover .overlay-text { transform: translateY(0); }
 
-/* Hover Effect: Zoom & Warna Muncul */
-.gallery-item:hover {
-    border-color: var(--gold);
-    z-index: 2; 
-    transform: scale(1.02);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-    filter: grayscale(0%);
-}
-/* Overlay Teks Keren */
-.overlay-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(to top, black, transparent);
-    color: var(--fire-orange);
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
-    transform: translateY(100%); /* Sembunyi dulu */
-    transition: 0.3s;
-}
+/* FITUR SORTIR GALERI JS */
+.gallery-item.hide { display: none; }
+.gallery-item.show { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
 /* ========================
-   TOMBOL MEDSOS (FOOTER GALERI)
+   TOMBOL MEDSOS & FOOTER
    ======================== */
+.gallery-footer { text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px dashed #333; }
+.more-text { font-family: 'Oswald', sans-serif; color: #888; margin-bottom: 20px; letter-spacing: 2px; }
+.button-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.btn-social { padding: 12px 30px; font-family: 'Rajdhani', sans-serif; font-weight: bold; text-decoration: none; color: white; border: 2px solid var(--fire-orange); text-transform: uppercase; transition: 0.4s; background: rgba(0,0,0,0.5); letter-spacing: 1px; position: relative; overflow: hidden; }
+.btn-social:hover { transform: translateY(-5px); border-color: transparent; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+.telegram:hover { background-color: #0088cc; box-shadow: 0 0 20px #0088cc; }
+.instagram:hover { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); box-shadow: 0 0 20px #dc2743; }
 
-.gallery-footer {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px dashed #333; /* Garis putus-putus pemisah */
-}
+footer { text-align: center; padding: 40px; background: #000; border-top: 1px solid #333; }
+.fire-text { color: var(--fire-orange); font-weight: bold; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-.more-text {
-    font-family: 'Oswald', sans-serif;
-    color: #888;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Biar di HP tombolnya turun ke bawah kalau nggak muat */
-}
-
-.btn-social {
-    padding: 12px 30px;
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    border: 2px solid var(--fire-orange);
-    text-transform: uppercase;
-    transition: 0.4s;
-    background: rgba(0,0,0,0.5);
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Hover Effect Keren */
-.btn-social:hover {
-    transform: translateY(-5px); /* Tombol naik dikit */
-    border-color: transparent;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-}
-
-/* Warna Khusus Telegram (Biru) saat Hover */
-.telegram:hover {
-    background-color: #0088cc;
-    box-shadow: 0 0 20px #0088cc;
-}
-
-/* Warna Khusus Instagram (Gradasi) saat Hover */
-.instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    box-shadow: 0 0 20px #dc2743;
-}
 /* =========================================
    RESPONSIVE MOBILE (KHUSUS HP)
-   Taruh kode ini di bagian paling bawah style.css
    ========================================= */
-/* ========================
-   FITUR SORTIR GALERI
-   ======================== */
-
-/* Kelas untuk menyembunyikan foto */
-.gallery-item.hide {
-    display: none; /* Hilang dari aliran grid */
-}
-
-/* Animasi saat foto muncul */
-.gallery-item.show {
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Tombol Filter Aktif (Warna Menyala) */
-.tag.active {
-    background: var(--fire-orange);
-    color: black;
-    box-shadow: 0 0 15px var(--fire-orange);
-    font-weight: bold;
-}
 @media screen and (max-width: 768px) {
+    nav { flex-direction: column; padding: 15px; gap: 15px; background: rgba(0, 0, 0, 0.95); }
+    .nav-links { gap: 15px; width: 100%; justify-content: center; padding: 0; }
+    .nav-links a { font-size: 0.9rem; }
     
-    /* 1. Perbaiki Menu Navigasi (Biar nggak nabrak) */
-    nav {
-        flex-direction: column; /* Menu turun ke bawah logo */
-        padding: 15px;
-        gap: 15px;
-        background: rgba(0, 0, 0, 0.95); /* Lebih gelap biar tulisan jelas */
-    }
-
-    .nav-links {
-        gap: 15px;
-        width: 100%;
-        justify-content: center; /* Menu jadi di tengah */
-        padding: 0;
-    }
-
-    .nav-links a {
-        font-size: 0.9rem; /* Ukuran font menu dikecilkan dikit */
-    }
-
-    /* 2. Kecilkan Tulisan Judul Utama (HERO) */
-    .hero-content {
-        width: 90%; /* Biar konten tidak terlalu mepet pinggir */
-    }
-
-    .hero-logo {
-        width: 100px; /* Logo Phoenix dikecilkan */
-        margin-bottom: 10px;
-    }
-
-    h1 {
-        font-size: 2.8rem; /* Dikecilkan dari 5rem jadi 2.8rem */
-        line-height: 1.1;  /* Jarak antar baris dirapatkan */
-        margin-bottom: 5px;
-    }
-
-    .script-font {
-        font-size: 1.8rem; /* Tulisan 'Gontor 5' dikecilkan */
-        margin-bottom: 10px;
-    }
-
-    .subtitle {
-        font-size: 0.9rem;
-        padding: 5px 10px;
-        margin-bottom: 25px;
-    }
-
-    .btn-fire {
-        padding: 12px 30px; /* Tombol disesuaikan jari jempol */
-        font-size: 0.9rem;
-    }
-
-    /* 3. Atur Jarak Section Squad/Santri */
-    .section-dark {
-        padding: 50px 5%; /* Padding pinggir dikurangi biar kartu lebih lega */
-    }
-
-    .section-title {
-        font-size: 2rem; /* Judul section dikecilkan */
-    }
-
-    /* Kartu Santri di HP */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px; /* Jarak saya kurangi sedikit biar lebih rapi */
+    .hero-content { width: 90%; }
+    .hero-logo { width: 100px; margin-bottom: 10px; }
+    h1 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 5px; }
+    .script-font { font-size: 1.8rem; margin-bottom: 10px; }
+    .subtitle { font-size: 0.9rem; padding: 5px 10px; margin-bottom: 25px; }
+    .btn-fire { padding: 12px 30px; font-size: 0.9rem; }
     
-    /* TAMBAHAN BARU: */
-    max-width: 1200px; /* Batasi lebar maksimal agar tidak terlalu longgar di layar lebar */
-    margin: 0 auto; /* Posisikan container di tengah layar */
-}
-    
-    .card {
-        margin: 0 10px; /* Kasih jarak dikit dari pinggir layar */
-    }
-    /* Tambahkan ini DI DALAM kurung kurawal @media paling bawah */
-    
-    .gallery-grid {
-        grid-template-columns: 1fr; /* Di HP jadi 1 kolom saja ke bawah */
-        grid-auto-rows: 250px; /* Tinggi foto di HP */
-    }
+    .section-dark { padding: 50px 5%; }
+    .section-title { font-size: 2rem; }
 
-    .wide, .tall, .big {
-        grid-column: span 1; /* Reset semua ukuran spesial jadi normal di HP */
-        grid-row: span 1;
+    /* Paksa jadi 1 Kolom ke bawah di HP */
+    .grid-container, .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
-
-    .gallery-item img {
-        filter: grayscale(0%); /* Di HP langsung berwarna aja, gak usah hover */
-    }
+    .card { margin: 0 10px; }
+    .gallery-item img { filter: grayscale(0%); }
 }
